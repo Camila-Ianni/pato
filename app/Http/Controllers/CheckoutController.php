@@ -30,117 +30,75 @@ class CheckoutController extends Controller
         }
 
         $subtotal = $items->sum(fn (CartItem $item): float => (float) $item->product->price * $item->quantity);
-        $items = $items->map(function (CartItem $item): CartItem {
-            $item->setAttribute('total_price', (float) $item->product->price * $item->quantity);
 
-            return $item;
-        });
-
-        $order = new Order([
-            'total' => $subtotal,
-        ]);
-        $order->setRelation('items', $items);
-
-        return view('checkout.show', [
-            'order' => $order,
-        ]);
-    }
-
-    public function process(
-        Request $request,
-        MercadoPagoService $mercadoPagoService
-    ): RedirectResponse {
-        $validated = $request->validate([
-            'payment_method' => ['required', 'in:mercadopago,transferencia'],
-        ]);
-
-        $paymentProvider = (string) $validated['payment_method'];
-
-        $user = $request->user();
-        $cartItems = collect();
-
-        $order = DB::transaction(function () use ($request, $user, &$cartItems): Order {
-            $cartItems = $this->cartQuery($request)
-                ->with('product')
-                ->lockForUpdate()
-                ->get();
-
-            if ($cartItems->isEmpty()) {
-                throw ValidationException::withMessages([
-                    'cart' => 'Tu carrito está vacío.',
-                ]);
-            }
-
-            foreach ($cartItems as $item) {
-                if (! $item->product->is_active || $item->quantity > $item->product->stock) {
-                    throw ValidationException::withMessages([
-                        'cart' => "No hay stock suficiente para {$item->product->title}.",
-                    ]);
-                }
-            }
-
-            $subtotal = $cartItems->sum(fn (CartItem $item): float => (float) $item->product->price * $item->quantity);
-            $total = $subtotal;
-
-            $order = Order::query()->create([
-                'user_id' => $user->id,
-                'customer_email' => (string) $request->input('customer_email', $user->email),
-                'customer_phone' => (string) $request->input('customer_phone', ''),
+        $order = Order::query()->firstOrCreate(
+            [
+                'user_id' => $request->user()->id,
                 'status' => 'pending',
                 'payment_provider' => null,
                 'transaction_id' => null,
+            ],
+            [
+                'customer_email' => (string) $request->user()->email,
+                'customer_phone' => '',
                 'subtotal' => $subtotal,
-                'total' => $total,
+                'total' => $subtotal,
                 'currency' => 'ARS',
-            ]);
+            ]
+        );
 
-            $orderItems = $cartItems->map(function (CartItem $item) use ($order): array {
-                $unitPrice = (float) $item->product->price;
-                $quantity = (int) $item->quantity;
+        $order->update([
+            'customer_email' => (string) $request->user()->email,
+            'subtotal' => $subtotal,
+            'total' => $subtotal,
+            'currency' => 'ARS',
+        ]);
 
-                $item->product->decrement('stock', $quantity);
+        $order->items()->delete();
 
-                return [
-                    'order_id' => $order->id,
-                    'product_id' => $item->product_id,
-                    'quantity' => $quantity,
-                    'unit_price' => $unitPrice,
-                    'total_price' => $unitPrice * $quantity,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ];
-            })->all();
+        OrderItem::query()->insert($items->map(function (CartItem $item) use ($order): array {
+            $unitPrice = (float) $item->product->price;
+            $quantity = (int) $item->quantity;
 
-            OrderItem::query()->insert($orderItems);
+            return [
+                'order_id' => $order->id,
+                'product_id' => $item->product_id,
+                'quantity' => $quantity,
+                'unit_price' => $unitPrice,
+                'total_price' => $unitPrice * $quantity,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        })->all());
 
-            return $order;
-        });
+        return view('checkout.show', [
+            'order' => $order->fresh('items.product'),
+        ]);
+    }
 
-        if ($paymentProvider === 'transferencia') {
-            $order->update([
-                'payment_provider' => 'transferencia',
-                'transaction_id' => null,
-                'status' => 'pending',
-            ]);
+    public function process(Request $request)
+    {
+        $request->validate([
+            'payment_method' => 'required|in:mercadopago,transferencia',
+            'order_id' => 'required|exists:orders,id'
+        ]);
 
-            $this->cartQuery($request)->delete();
+        $order = Order::findOrFail($request->order_id);
+        $order->update(['payment_provider' => $request->payment_method]);
 
-            return redirect()->route('checkout.transfer.instructions', $order);
+        if ($request->payment_method === 'transferencia') {
+            // Redirigir a pantalla de gracias con datos de CBU
+            return redirect()->route('checkout.thanks', $order->id);
         }
 
-        try {
-            $checkout = $mercadoPagoService->createCheckoutPreference($order, $cartItems);
-
-            $order->update([
-                'payment_provider' => $paymentProvider,
-                'transaction_id' => $checkout['transaction_id'],
-            ]);
-
-            $this->cartQuery($request)->delete();
-
-            return redirect()->away($checkout['checkout_url']);
-        } catch (Throwable $exception) {
-            return back()->with('error', 'Error conectando con Mercado Pago. Por favor, elige Transferencia.');
+        if ($request->payment_method === 'mercadopago') {
+            try {
+                $mpService = new \App\Services\MercadoPagoService();
+                $preference = $mpService->createPreference($order);
+                return redirect($preference->init_point);
+            } catch (\Exception $e) {
+                return back()->with('error', 'Ocurrió un error al conectar con Mercado Pago. Por favor, intenta usar Transferencia Bancaria.');
+            }
         }
     }
 

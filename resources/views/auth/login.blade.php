@@ -24,6 +24,13 @@
                 <button type="submit" class="w-full bg-primary text-on-primary py-4 font-label-caps text-label-caps tracking-[0.2em] uppercase hover:bg-primary-container transition-all">
                     Ingresar
                 </button>
+
+                <div class="mt-8 text-center border-t border-stone-200 pt-6">
+                    <p class="text-stone-600 mb-4 font-serif">¿Todavía no tenés una cuenta?</p>
+                    <a href="{{ route('register') }}" class="inline-block w-full border border-stone-800 text-stone-800 py-3 tracking-widest uppercase text-sm hover:bg-stone-50 transition-colors font-semibold text-center">
+                        Crear cuenta nueva
+                    </a>
+                </div>
             </form>
         </div>
     </section>

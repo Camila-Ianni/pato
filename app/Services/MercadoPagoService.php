@@ -61,6 +61,23 @@ class MercadoPagoService
         ];
     }
 
+    public function createPreference(Order $order): object
+    {
+        $items = $order->items()->with('product')->get()->map(function ($item) {
+            return new CartItem([
+                'quantity' => (int) $item->quantity,
+                'product' => $item->product,
+            ]);
+        });
+
+        $checkout = $this->createCheckoutPreference($order, $items);
+
+        return (object) [
+            'init_point' => $checkout['checkout_url'],
+            'id' => $checkout['transaction_id'],
+        ];
+    }
+
     public function fetchPayment(string $paymentId): array
     {
         if ($this->accessToken === '') {
