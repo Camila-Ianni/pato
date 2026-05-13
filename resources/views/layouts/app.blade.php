@@ -25,14 +25,24 @@
                 <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="{{ url('/nuestra-historia') }}">Nuestra Historia</a>
                 <a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="{{ url('/contacto') }}">Contacto</a>
             </nav>
-            <div class="flex items-center gap-4">
+           <div class="flex items-center gap-4">
                 <a href="{{ route('cart.index') }}" class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
                     <span class="material-symbols-outlined">shopping_bag</span>
                 </a>
+                
                 @auth
-                    <a href="{{ url('/dashboard') }}" class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
-                        <span class="material-symbols-outlined">person</span>
-                    </a>
+                    @if(auth()->user()->is_admin)
+                        <a href="{{ url('/dashboard') }}" class="hover:opacity-80 transition-opacity active:scale-95 duration-150" title="Panel de Administración">
+                            <span class="material-symbols-outlined">manage_accounts</span>
+                        </a>
+                    @endif
+                    
+                    <form method="POST" action="{{ route('logout') }}" class="inline-flex items-center m-0">
+                        @csrf
+                        <button type="submit" class="hover:opacity-80 transition-opacity active:scale-95 duration-150 flex items-center cursor-pointer" title="Cerrar Sesión">
+                            <span class="material-symbols-outlined">logout</span>
+                        </button>
+                    </form>
                 @else
                     <a href="{{ url('/login') }}" class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
                         <span class="material-symbols-outlined">person</span>
