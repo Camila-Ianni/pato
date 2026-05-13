@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --color-on-tertiary-fixed: #1c1c17;
+    --color-tertiary: #2d2d28;
+    --color-surface-tint: #7d553e;
+    --color-secondary-fixed-dim: #ffb68e;
+    --color-tertiary-container: #43433d;
+    --color-inverse-on-surface: #f8efeb;
+    --color-secondary: #974810;
+    --color-on-secondary-container: #713000;
+    --color-surface-container-low: #fbf2ee;
+    --color-inverse-primary: #efbc9f;
+    --color-secondary-fixed: #ffdbc9;
+    --color-surface-container: #f5ece9;
+    --color-tertiary-fixed: #e5e2da;
+    --color-inverse-surface: #342f2d;
+    --color-surface-container-lowest: #ffffff;
+    --color-on-surface-variant: #50443e;
+    --color-outline: #83746d;
+    --color-surface-container-highest: #e9e1dd;
+    --color-on-secondary-fixed: #331200;
+    --color-secondary-container: #fc975a;
+    --color-primary-fixed-dim: #efbc9f;
+    --color-on-tertiary: #ffffff;
+    --color-surface-variant: #e9e1dd;
+    --color-on-secondary: #ffffff;
+    --color-on-background: #1e1b19;
+    --color-on-surface: #1e1b19;
+    --color-primary-container: #5d3a25;
+    --color-surface-container-high: #efe6e3;
+    --color-tertiary-fixed-dim: #c9c6bf;
+    --color-primary: #432411;
+    --color-surface-dim: #e1d8d5;
+    --color-on-primary-container: #d6a489;
+    --color-on-primary: #ffffff;
+    --color-primary-fixed: #ffdbc9;
+    --color-surface: #fff8f5;
+    --color-on-tertiary-container: #b1afa8;
+    --color-on-primary-fixed: #2f1404;
+    --color-error: #ba1a1a;
+    --color-error-container: #ffdad6;
+    --color-on-tertiary-fixed-variant: #474741;
+    --color-on-secondary-fixed-variant: #763300;
+    --color-outline-variant: #d5c3bb;
+    --color-on-error: #ffffff;
+    --color-on-primary-fixed-variant: #623e29;
+    --color-surface-bright: #fff8f5;
+    --color-on-error-container: #93000a;
+    --color-background: #fff8f5;
+
+    --radius: 0.125rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.5rem;
+    --radius-full: 0.75rem;
+
+    --spacing-base: 8px;
+    --spacing-max-width: 1280px;
+    --spacing-gutter: 24px;
+    --spacing-margin-desktop: 64px;
+    --spacing-margin-mobile: 20px;
+
+    --font-label-caps: 'Work Sans', sans-serif;
+    --font-accent-script: 'EB Garamond', serif;
+    --font-display-lg: 'Libre Caslon Text', serif;
+    --font-headline-md: 'Libre Caslon Text', serif;
+    --font-body-md: 'Work Sans', sans-serif;
+    --font-body-lg: 'Work Sans', sans-serif;
+    --font-headline-lg: 'Libre Caslon Text', serif;
+}
+
+@layer base {
+    body {
+        background-color: #fff8f5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+@layer utilities {
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        font-size: 20px;
+    }
+
+    .text-label-caps {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+    }
+
+    .text-accent-script {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 400;
+    }
+
+    .text-display-lg {
+        font-size: 48px;
+        line-height: 56px;
+        letter-spacing: 0.02em;
+        font-weight: 400;
+    }
+
+    .text-headline-md {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 400;
+    }
+
+    .text-body-md {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+    }
+
+    .text-body-lg {
+        font-size: 18px;
+        line-height: 28px;
+        font-weight: 400;
+    }
+
+    .text-headline-lg {
+        font-size: 32px;
+        line-height: 40px;
+        font-weight: 400;
+    }
+}

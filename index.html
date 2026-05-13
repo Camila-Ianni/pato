@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&amp;family=Work+Sans:wght@400;600&amp;family=EB+Garamond:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-tertiary-fixed": "#1c1c17",
+                "tertiary": "#2d2d28",
+                "surface-tint": "#7d553e",
+                "secondary-fixed-dim": "#ffb68e",
+                "tertiary-container": "#43433d",
+                "inverse-on-surface": "#f8efeb",
+                "secondary": "#974810",
+                "on-secondary-container": "#713000",
+                "surface-container-low": "#fbf2ee",
+                "inverse-primary": "#efbc9f",
+                "secondary-fixed": "#ffdbc9",
+                "surface-container": "#f5ece9",
+                "tertiary-fixed": "#e5e2da",
+                "inverse-surface": "#342f2d",
+                "surface-container-lowest": "#ffffff",
+                "on-surface-variant": "#50443e",
+                "outline": "#83746d",
+                "surface-container-highest": "#e9e1dd",
+                "on-secondary-fixed": "#331200",
+                "secondary-container": "#fc975a",
+                "primary-fixed-dim": "#efbc9f",
+                "on-tertiary": "#ffffff",
+                "surface-variant": "#e9e1dd",
+                "on-secondary": "#ffffff",
+                "on-background": "#1e1b19",
+                "on-surface": "#1e1b19",
+                "primary-container": "#5d3a25",
+                "surface-container-high": "#efe6e3",
+                "tertiary-fixed-dim": "#c9c6bf",
+                "primary": "#432411",
+                "surface-dim": "#e1d8d5",
+                "on-primary-container": "#d6a489",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#ffdbc9",
+                "surface": "#fff8f5",
+                "on-tertiary-container": "#b1afa8",
+                "on-primary-fixed": "#2f1404",
+                "error": "#ba1a1a",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#474741",
+                "on-secondary-fixed-variant": "#763300",
+                "outline-variant": "#d5c3bb",
+                "on-error": "#ffffff",
+                "on-primary-fixed-variant": "#623e29",
+                "surface-bright": "#fff8f5",
+                "on-error-container": "#93000a",
+                "background": "#fff8f5"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "base": "8px",
+                "max-width": "1280px",
+                "gutter": "24px",
+                "margin-desktop": "64px",
+                "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                "label-caps": ["Work Sans"],
+                "accent-script": ["EB Garamond"],
+                "display-lg": ["Libre Caslon Text"],
+                "headline-md": ["Libre Caslon Text"],
+                "body-md": ["Work Sans"],
+                "body-lg": ["Work Sans"],
+                "headline-lg": ["Libre Caslon Text"]
+            },
+            "fontSize": {
+                "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                "accent-script": ["22px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body {
+            background-color: #fff8f5;
+        }
+        .text-label-caps { font-family: 'Work Sans', sans-serif; text-transform: uppercase; }
+        .text-accent-script { font-family: 'EB Garamond', serif; font-style: italic; }
+        .text-headline-md { font-family: 'Libre Caslon Text', serif; }
+        .text-display-lg { font-family: 'Libre Caslon Text', serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky backdrop-blur-md z-50 bg-surface/90 border-b border-primary/10">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-max-width mx-auto">
+<div class="text-headline-md font-headline-md tracking-[0.2em] text-primary">
+                LEGADO PATO
+            </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-label-caps font-label-caps text-primary border-b border-primary pb-1" href="#">Inicio</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Colección</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Nuestra Historia</a>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Legado Pato Heritage" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRNHxVHzwolyqqwouTrj0AoqShCTETOuez8pAznr1jAnWgDZXyE-szvB8KTE-Mm5HnogUhcYjeDF2z0mT8qnQbGkmRgRr-gDwQdMxGa9hDenxvx9khZ-e6cTR1IQ6-kkgM0YmZs2R9Gkx_EZkYWJshS3Uew1hLR6COK06UzhWWw34YqlnwGl0xUsQ4FndAfQhQUvRjz83FaQr1I8A8Jl0dlTdf3x7MRy3rN9DUVtJhbbxV3aloJRfXb-58UXRBJdF4lGguPKeuTgho"/>
+<div class="absolute inset-0 bg-primary/20 backdrop-brightness-75"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile max-w-3xl flex flex-col items-center">
+<div class="mb-6">
+<span class="material-symbols-outlined text-surface text-4xl" data-icon="light_mode" style="font-variation-settings: 'wght' 100;">light_mode</span>
+</div>
+<h1 class="text-display-lg font-display-lg text-surface tracking-[0.3em] mb-4 uppercase">
+                    LEGADO PATO
+                </h1>
+<p class="text-label-caps font-label-caps text-surface/90 tracking-[0.15em] mb-12">
+                    Raíces que abrigan. Historias que acompañan.
+                </p>
+<div class="h-[1px] w-24 bg-surface/30 mb-8"></div>
+<div class="text-surface/90 text-body-lg font-body-lg max-w-md leading-relaxed mb-6">
+                    Hay símbolos que no solo abrigan el cuerpo.<br/>
+                    Abrigan la historia que llevamos encima.
+                </div>
+<p class="text-accent-script font-accent-script text-surface text-display-lg italic">
+                    Se hereda.
+                </p>
+<div class="mt-16">
+<button class="border border-surface/50 text-surface text-label-caps px-10 py-4 hover:bg-surface hover:text-primary transition-all duration-300">
+                        Explorar Colección
+                    </button>
+</div>
+</div>
+</section>
+<!-- Colección Destacada Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-2">Colección Destacada</h2>
+<div class="h-1 w-20 bg-secondary"></div>
+</div>
+<a class="text-label-caps font-label-caps text-on-surface-variant hover:text-secondary transition-colors" href="#">Ver Todo</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A luxurious, hand-woven Argentine ruana made of premium sheep wool in a soft cream and camel earth tone. The texture is thick and inviting, displayed against a rustic wooden background with warm, natural sunlight filtering in from the side. The shot is high-end, editorial fashion photography focusing on the artisanal weave and the rich, organic materials. The mood is timeless and sophisticated, reflecting the Legado Pato brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5Clno0qu8GeqWGJv4SArCNq5yeO3Myq66UbosBzbeDOyxliBdsGuMEFKblWT3-be6iT_W_1ab4-4pM7tzTcq4DgZpnM-hLSukHgR8Z1YPD-xWfdBP7nzfIV4bDR-xIFpy8tI2BrDjuU76cuitcFsW-AqLgJeF8QvjrVVx5zBYUWvZTDmO9ARJdM-kdiW5E1SF8ALyYnj2xz9g45jFCNq1jU5KBvev36bWdTYk1ppKhu-PDPwiKtxorvAxrKy_JCAfRcYyo6Sd57-j"/>
+<div class="absolute top-4 right-4 bg-surface-bright/80 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold border border-primary/10">
+                            Hecho a Mano
+                        </div>
+</div>
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Ruana Pampa</h3>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Lana de Oveja Premium</p>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up of a dark charcoal and smoke grey wool poncho featuring traditional geometric patterns from the Argentine pampas. The fabric shows incredible tactile detail, with fine fringes at the hem. The lighting is moody and dramatic, emphasizing the depth and heritage of the garment. It is presented in a minimalist, gallery-like setting with subtle shadows and a rich earthy color palette of deep browns and greys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNDddnYk5pXO_qL8ycLeYYEJcPxNdzIky_wyB2uRAn65QDYybPraFzbNSFZUfkO1eJkhdyDGHx2cJZDnGa-J4ZpbN6a43WWgdngQHlSXipcuStgdpGt0G_f30hiEeF30P_ebyYi3FxOwADxozxex4wuNulXD77uczRx5lqAutxwDMj-EkRnwgb-r1MfNLcXwrFMiJFHzAjONDhzNQYXziLNmxt0sKyK--10gaWm2gNE8u90FhUDSd2nsM39UUhphKnVYcXzdmkp3-B"/>
+</div>
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Poncho Herencia</h3>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Fibras Naturales</p>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A folded artisan-crafted throw blanket made of pure merino wool in a warm terra-cotta orange hue, resting on a vintage leather trunk. The background features the soft-focus silhouette of an Argentine ranch house at sunset. The image uses high-key golden hour lighting to evoke a sense of warmth and eternal home. The aesthetic is elegant and spacious, prioritizing the quality of the textile and the authenticity of the setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf4cHn6oULVS13lI41vgjUOgmHt5X7wVLNH21HgLHTP2srFt5JRTCZaieU3OKF8tcgTecE90G4ihgdvZMV17p8G-MzAko8xfLdSYEZ8modnyGUbP0j_bag3ze0TuybrIMixgs1YeCNfiyLrZRd65CrXuMA0cQZ6ugpFmE580uraKbrRtIISvsQkg3YPeO3ToB6LJwaUPVV8HQ36ymd6iofEEh1ZCJ6QHQBeAV58A_PJ-XYwrVAvL5fZg1sQfUpldV93Sg9jz7DDGHu"/>
+<div class="absolute top-4 right-4 bg-surface-bright/80 backdrop-blur px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-semibold border border-primary/10">
+                            Edición Limitada
+                        </div>
+</div>
+<h3 class="text-headline-md font-headline-md text-primary mb-1">Manta Austral</h3>
+<p class="text-label-caps font-label-caps text-on-surface-variant">Merino Seleccionado</p>
+</div>
+</div>
+</section>
+<!-- Nuestra Esencia Section (Story Block) -->
+<section class="bg-surface-container py-32 px-margin-mobile relative overflow-hidden">
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<div class="flex justify-center mb-8">
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="history_edu">history_edu</span>
+</div>
+<h2 class="text-headline-lg font-headline-lg text-primary mb-8 tracking-wide">Nuestra Esencia</h2>
+<div class="space-y-6 max-w-2xl mx-auto text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+<p>
+                        Nacemos de la memoria, de la infancia, de la identidad de esta tierra. Cada pieza de Legado Pato es el resultado de un tiempo pausado, respetando los ciclos de la naturaleza y el saber ancestral de las manos que tejen.
+                    </p>
+<p>
+                        No creamos simples prendas; custodiamos historias que merecen ser transmitidas de generación en generación.
+                    </p>
+</div>
+<div class="mt-12">
+<p class="text-accent-script font-accent-script text-headline-lg text-secondary">
+                        Lo que nos abriga, nos une.
+                    </p>
+</div>
+<div class="mt-16 flex justify-center gap-12 flex-wrap">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="eco">eco</span>
+<span class="text-label-caps font-label-caps text-[10px]">100% Orgánico</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+<span class="text-label-caps font-label-caps text-[10px]">Origen Argentino</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="inventory_2">inventory_2</span>
+<span class="text-label-caps font-label-caps text-[10px]">Traceabilidad Total</span>
+</div>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute top-0 left-0 w-64 h-64 border-l border-t border-secondary/10 -translate-x-12 -translate-y-12"></div>
+<div class="absolute bottom-0 right-0 w-64 h-64 border-r border-b border-secondary/10 translate-x-12 translate-y-12"></div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto text-center border-t border-primary/5 mt-20">
+<h3 class="text-headline-md font-headline-md text-primary mb-4">Únete al Legado</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-10 max-w-md mx-auto">
+                Recibe historias sobre nuestras tejedoras, nuevos lanzamientos y el arte de vivir con propósito.
+            </p>
+<form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto justify-center">
+<input class="flex-grow bg-transparent border-b-2 border-outline-variant focus:border-secondary outline-none px-4 py-2 font-body-md transition-colors placeholder:text-outline/50" placeholder="Tu correo electrónico" type="email"/>
+<button class="bg-primary text-secondary-fixed text-label-caps px-8 py-3 hover:opacity-90 transition-opacity" type="submit">
+                    Suscribirme
+                </button>
+</form>
+</section>
+</main>
+<!-- Footer -->
+<footer class="full-width mt-20 bg-primary text-secondary-fixed">
+<div class="flex flex-col items-center justify-center text-center gap-base py-16 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-headline-lg font-headline-lg text-secondary-fixed tracking-[0.25em] mb-4">
+                LEGADO PATO
+            </div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-4 mb-12">
+<a class="text-label-caps font-label-caps text-primary-fixed/70 hover:text-surface-bright transition-colors" href="#">Envíos y Cambios</a>
+<a class="text-label-caps font-label-caps text-primary-fixed/70 hover:text-surface-bright transition-colors" href="#">Cuidado de la Lana</a>
+<a class="text-label-caps font-label-caps text-primary-fixed/70 hover:text-surface-bright transition-colors" href="#">Traceabilidad</a>
+<a class="text-label-caps font-label-caps text-primary-fixed/70 hover:text-surface-bright transition-colors" href="#">Términos y Condiciones</a>
+</div>
+<div class="h-[1px] w-full max-w-xs bg-secondary-fixed/20 mb-8"></div>
+<p class="text-label-caps font-label-caps text-[10px] tracking-[0.15em] opacity-80">
+                © 2024 LEGADO PATO. HECHO EN ARGENTINA CON ORGULLO PARA SIEMPRE.
+            </p>
+<div class="mt-8 flex gap-6">
+<a class="text-primary-fixed/70 hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</a>
+<a class="text-primary-fixed/70 hover:text-secondary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span>
+</a>
+</div>
+</div>
+</footer>
+</body></html>

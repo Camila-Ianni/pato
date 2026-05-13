@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Work+Sans:wght@400;600&amp;family=EB+Garamond:ital@0;1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+        }
+        .debossed {
+            box-shadow: inset 2px 2px 4px rgba(0,0,0,0.05);
+        }
+        .thin-rule {
+            height: 1px;
+            background-color: #432411;
+            opacity: 0.2;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#1c1c17",
+                        "tertiary": "#2d2d28",
+                        "surface-tint": "#7d553e",
+                        "secondary-fixed-dim": "#ffb68e",
+                        "tertiary-container": "#43433d",
+                        "inverse-on-surface": "#f8efeb",
+                        "secondary": "#974810",
+                        "on-secondary-container": "#713000",
+                        "surface-container-low": "#fbf2ee",
+                        "inverse-primary": "#efbc9f",
+                        "secondary-fixed": "#ffdbc9",
+                        "surface-container": "#f5ece9",
+                        "tertiary-fixed": "#e5e2da",
+                        "inverse-surface": "#342f2d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#50443e",
+                        "outline": "#83746d",
+                        "surface-container-highest": "#e9e1dd",
+                        "on-secondary-fixed": "#331200",
+                        "secondary-container": "#fc975a",
+                        "primary-fixed-dim": "#efbc9f",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e9e1dd",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1e1b19",
+                        "on-surface": "#1e1b19",
+                        "primary-container": "#5d3a25",
+                        "surface-container-high": "#efe6e3",
+                        "tertiary-fixed-dim": "#c9c6bf",
+                        "primary": "#432411",
+                        "surface-dim": "#e1d8d5",
+                        "on-primary-container": "#d6a489",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#ffdbc9",
+                        "surface": "#fff8f5",
+                        "on-tertiary-container": "#b1afa8",
+                        "on-primary-fixed": "#2f1404",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#474741",
+                        "on-secondary-fixed-variant": "#763300",
+                        "outline-variant": "#d5c3bb",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#623e29",
+                        "surface-bright": "#fff8f5",
+                        "on-error-container": "#93000a",
+                        "background": "#fff8f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "max-width": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Work Sans"],
+                        "accent-script": ["EB Garamond"],
+                        "display-lg": ["Libre Caslon Text"],
+                        "headline-md": ["Libre Caslon Text"],
+                        "body-md": ["Work Sans"],
+                        "body-lg": ["Work Sans"],
+                        "headline-lg": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "accent-script": ["22px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface font-body-md">
+<!-- TopNavBar -->
+<header class="bg-surface/90 dark:bg-primary/90 docked full-width top-0 sticky backdrop-blur-md z-50 border-b border-primary/10 dark:border-primary-fixed/10">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-max-width mx-auto">
+<div class="text-headline-md font-headline-md tracking-[0.2em] text-primary dark:text-secondary-fixed">
+                LEGADO PATO
+            </div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-secondary-fixed transition-colors text-label-caps font-label-caps" href="#">Inicio</a>
+<a class="text-primary dark:text-secondary-fixed border-b border-primary dark:border-secondary-fixed pb-1 text-label-caps font-label-caps" href="#">Colección</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-secondary-fixed transition-colors text-label-caps font-label-caps" href="#">Nuestra Historia</a>
+<a class="text-on-surface-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-secondary-fixed transition-colors text-label-caps font-label-caps" href="#">Contacto</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="text-primary hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20">
+<!-- Header Section -->
+<section class="mb-16 text-center">
+<h1 class="text-display-lg font-display-lg text-primary mb-4">Nuestra Colección</h1>
+<p class="text-accent-script italic text-on-surface-variant max-w-2xl mx-auto">Raíces que abrigan. Historias que acompañan.</p>
+<div class="thin-rule w-24 mx-auto mt-8"></div>
+</section>
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Filter Sidebar -->
+<aside class="w-full md:w-64 space-y-10 shrink-0">
+<div>
+<h3 class="text-label-caps font-label-caps text-primary mb-6">COLOR</h3>
+<div class="flex flex-wrap gap-4">
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-[#F5F5DC] ring-offset-2 hover:ring-1 ring-primary transition-all"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-[#432411] ring-offset-2 hover:ring-1 ring-primary transition-all"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-[#8B4513] ring-offset-2 hover:ring-1 ring-primary transition-all"></button>
+<button class="w-8 h-8 rounded-full border border-outline-variant bg-[#708090] ring-offset-2 hover:ring-1 ring-primary transition-all"></button>
+</div>
+</div>
+<div>
+<h3 class="text-label-caps font-label-caps text-primary mb-6">TIPO DE HILADO</h3>
+<ul class="space-y-3">
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 border-outline text-primary focus:ring-secondary rounded-sm" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Lana de Oveja 100%</span>
+</label>
+</li>
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 border-outline text-primary focus:ring-secondary rounded-sm" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Mezcla Mohair</span>
+</label>
+</li>
+<li>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 border-outline text-primary focus:ring-secondary rounded-sm" type="checkbox"/>
+<span class="text-body-md text-on-surface-variant group-hover:text-primary transition-colors">Llama Selección</span>
+</label>
+</li>
+</ul>
+</div>
+<div class="pt-6 border-t border-primary/10">
+<p class="text-label-caps font-label-caps text-on-surface-variant/60 uppercase">Filtrar por</p>
+<div class="mt-4 flex flex-col gap-2">
+<button class="text-left text-body-md text-on-surface-variant hover:text-primary transition-colors">Ponchos</button>
+<button class="text-left text-body-md text-on-surface-variant hover:text-primary transition-colors">Ruanas</button>
+<button class="text-left text-body-md text-on-surface-variant hover:text-primary transition-colors">Accesorios</button>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-1">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-12">
+<!-- Product Card 1 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up of a high-quality hand-woven cream-colored wool ruana draped elegantly over a wooden chair. The natural texture of the wool is highlighted by soft, morning sunlight streaming into a minimalist Argentine estancia. The background is a blurred landscape of the pampas, creating a serene and authentic atmosphere. The color palette is dominated by warm neutrals and deep browns." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBILijSFLAiJ9vfoLuAEYLZ0OOmpZPldhFDQJWtny3r-qdVBmB-rb7uK47QOjPDE1HjOXYJI4xlbvjeVfS1BBC27Gra-CmzNHWlalLOiSBJxANsPGNRBnph09D318EsntbDhDAYwGaG1cMvtjouZo-BIrlJQVeFBVJwVm9CfnaodtTO2v9l2ynIvS3hCtPy7eaqTC1E-cSrUXDRyP6zXhg-hAtkoPpeFfr5idENbjc54MrahLioZlPz7-UtYsERyrQDb3ZKtxg4lj_L"/>
+<span class="absolute top-4 left-4 bg-surface px-3 py-1 text-label-caps font-label-caps text-primary border border-primary/10">NUEVO</span>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Ruana Pampa</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">LANA DE OVEJA NATURAL</p>
+<p class="text-body-lg font-body-lg text-secondary">$32.500</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A detailed shot of a dark brown traditional poncho hanging on an old weathered wooden door. The thick, hand-spun fibers of the wool catch the light, showing the artisanal craftsmanship and depth of the material. The setting is rustic and grounded, reflecting the heritage of the Argentine countryside. The lighting is low and moody, emphasizing the rich, earthy tones of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAHlKe8qz7WU0DsEIxNAfNk2T8UzMi9l7Fx_KtjtxT6tvoEhhlvwpjWvtLE2h5lyVPB8lm1DzZ-kmkhhnTaJWq3l2vhLoRRHb8TygPACIvSyhBajQFoAlNI7Kkj8fHO8xdpP4hFw4zHdM8jTg5XvV5dPpwgQ-qUra7DN-zAg69OV7t3K4V5rgSSQxsndgxzXtMGFbnONWPgOlAUmuFkhAlzvCX4K5BTC6yHYYZMgvNtlVw2G3_YnqHzk75zDYYMqBKWoptKbYikpYp"/>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Poncho Federal</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">MARRÓN CRIOLLO</p>
+<p class="text-body-lg font-body-lg text-secondary">$45.000</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A soft gray woven shawl folded neatly on a rough-hewn stone surface. The intricate weaving pattern is visible, showcasing the delicate yet durable nature of the alpaca blend. The environment is a clean, minimalist space with hints of organic materials like leather and stone. The light is neutral and soft, creating a calm and sophisticated aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtIhB-aFIUvOacXJfm8W0W5aP7irkaw4sJt7-zx9LwSCnOigM0glRvZWgxBDBLWjPdICvAYYA50DI1__RKNKgl3pxYhJrexCaglMLlEsPdpemR0FXDYZAzmX53yjgkJzSu1-vTyXy041XEI3dl1sK9FGvIr4H72ZfHuZ6uBUtz02q3lDdz7H77kJOjdgw2WgGXb7uW9CM0g4ppngbCATDl6KH15zdo4_Bdn5upDxIfHo9__ucyvmEPx_Av0MTz6NCC994_eBihdn0o"/>
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<button class="bg-primary text-surface px-6 py-3 text-label-caps font-label-caps hover:bg-secondary transition-colors">VER DETALLE</button>
+</div>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Manta Ancestral</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">GRIS NIEBLA</p>
+<p class="text-body-lg font-body-lg text-secondary">$28.900</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A beautifully crafted ochre-colored ruana displayed against a white plaster wall with soft shadows from a nearby tree. the fabric has a subtle fringe detail at the bottom. The scene captures the essence of slow fashion and artisanal heritage. The lighting is natural and bright, highlighting the warm, golden hue of the natural dye." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ6oHej0DKQOf78mo0nNGQvGm-DP9DpuDCJM_Iv9Udd1o4llGX9SXHUOZu2JBGJziH295kdTSXtH7VJkPoa6Tt1eZsjjvDyFXHvJuM37ISBu6Y4xihPV_WPWqT0AB06T6YIHdwS77YxNyOQgi_aHFpYwyZrVG1MByFEesAR6a-v53Aa0jkEmxymZ_rZAI2Txgaa4BNTJpATevlhrfVJGYOVGoCG1W9FQCWBjcAUQILHO_OKMVEbFLymUHOMMcOKzlj7Y5SwT7BngLL"/>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Ruana Hornero</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">TEÑIDO NATURAL</p>
+<p class="text-body-lg font-body-lg text-secondary">$38.200</p>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A close-up shot focusing on the hand-stitched leather detail of a wool garment edge. The leather is a deep mahogany color with precise, artisanal stitching. The wool has a coarse, authentic texture in a charcoal gray. The mood is focused on detail and quality, with a very shallow depth of field and warm, focused lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATqGJvdjWPB1s1_NBoq6emDRh5fKhMelWjhIVNtAvcCGz9_IPur-rkzJhXvUkeqPyLLCB5tRplM4ISVSx2IifoOY1NRihkWHe8KCLKATmqR93BUT1o3FIatlFBUhxS9L3WKyho3nz1jPP_L6fiXCWakzFgTMrzcR0joeRdwVPokagvlDU-aKH11ljbi4QE_IgfVXu5ssHuK_pAbXyOYmCNbdUk0FFLW-VbjESCjQXh4IJYFurVM7jlxWKnrzCYpwBlc7X6namiIgrs"/>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Poncho Criollo</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">CON DETALLES EN CUERO</p>
+<p class="text-body-lg font-body-lg text-secondary">$52.000</p>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container mb-4 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="An ivory white wool poncho featuring traditional geometric patterns woven in subtle beige tones. The garment is held by an artisan in a bright, sunlit workshop filled with spindles of yarn. The overall feel is one of heritage and human connection. The light is high-key and airy, emphasizing the purity of the natural fibers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATGlgd6SOdF4zIDl8NeFzDZ1JNnAbdUG-zRhItyEJYF1EhudyaWbUxGof1WT64yyFiRpK4gKYjaVMSMpIMWGvBVpSmJGaHpMWlyZCGBuH3UzBzDXY9AARfFH4LKfgwMZn7vQYjlW-t6LVIL9DU-nXz2NQS2TwlxtpibVi2llJmrYGac7SOpzBqt_iCLIV4AdV2YUghMPkbIjDCe1lrx_SlPDp5Ii4DJ-IJYob8K9ENopGLGPpBXN-SmtHfoDLCht-QTsYFzYLGTv1T"/>
+<span class="absolute top-4 left-4 bg-primary text-secondary-fixed px-3 py-1 text-label-caps font-label-caps border border-primary/10">EDICIÓN LIMITADA</span>
+</div>
+<div class="text-center">
+<h2 class="text-headline-md font-headline-md text-primary mb-1">Poncho Herencia</h2>
+<p class="text-label-caps font-label-caps text-on-surface-variant mb-2">LANA PREMIUN</p>
+<p class="text-body-lg font-body-lg text-secondary">$58.000</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Story Block -->
+<section class="mt-20 relative h-[400px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover brightness-50" data-alt="A wide panoramic view of the Argentine pampas at dusk. The horizon line is vast and low, with a soft gradient of orange and deep purple in the sky. A lone ombu tree stands silhouetted against the fading light. The mood is quiet, eternal, and deeply grounded in the earth. The aesthetic is one of expansive minimalism and natural beauty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANLOrOhxt7fo5KF09eHcHnCSjT0y5kR2FtUt-kaIKGifzyr9ZLgyGokmC8uLnFuKAOFGokOU9picdi3eZI7fQlmA07M8veqgLhVowb-7UvcRNWFqXKsivzKZ5XaQdhDx2C5skjvnmp80Z3SEcR53i4vNpzWw9FWv9N0KHkEn_oSyvmBcqpVem5prVKskw0sXwObk3reao0K9HratpCH-j5oZU9xm-YRjYDttU3GeNGno48Z0XY8XW74D7tpTbvTvhxP-oQft1K0toU"/>
+</div>
+<div class="relative z-10 text-center px-6">
+<p class="text-accent-script italic text-surface-bright text-display-lg max-w-3xl">
+                "Hay símbolos que no solo abrigan el cuerpo. Abrigan la historia que llevamos encima."
+            </p>
+<div class="mt-8">
+<span class="material-symbols-outlined text-surface-bright" data-icon="nature">nature</span>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-on-primary-fixed full-width mt-20">
+<div class="flex flex-col items-center justify-center text-center gap-base py-16 px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto">
+<div class="text-headline-lg font-headline-lg text-secondary-fixed mb-6">
+                LEGADO PATO
+            </div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-12">
+<a class="text-primary-fixed/70 hover:text-primary-fixed transition-colors text-label-caps font-label-caps" href="#">Envíos y Cambios</a>
+<a class="text-primary-fixed/70 hover:text-primary-fixed transition-colors text-label-caps font-label-caps" href="#">Cuidado de la Lana</a>
+<a class="text-primary-fixed/70 hover:text-primary-fixed transition-colors text-label-caps font-label-caps underline" href="#">Traceabilidad</a>
+<a class="text-primary-fixed/70 hover:text-primary-fixed transition-colors text-label-caps font-label-caps" href="#">Términos y Condiciones</a>
+</div>
+<div class="flex gap-8 mb-12">
+<span class="material-symbols-outlined text-secondary-fixed/50" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-secondary-fixed/50" data-icon="camera">camera</span>
+<span class="material-symbols-outlined text-secondary-fixed/50" data-icon="mail">mail</span>
+</div>
+<div class="thin-rule w-32 opacity-10 bg-surface mb-8"></div>
+<p class="text-label-caps font-label-caps text-primary-fixed/50 max-w-md">
+                © 2024 LEGADO PATO. HECHO EN ARGENTINA CON ORGULLO PARA SIEMPRE.
+            </p>
+</div>
+</footer>
+</body></html>
