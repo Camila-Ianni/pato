@@ -119,9 +119,11 @@
                             <span class="text-headline-lg font-headline-lg text-primary">$ {{ number_format((float) $total, 2, ',', '.') }}</span>
                         </div>
 
-                        <a href="{{ route('checkout.show') }}" class="w-full inline-flex justify-center bg-primary text-on-primary py-4 font-label-caps text-label-caps tracking-[0.2em] uppercase hover:bg-primary-container transition-all active:scale-95 duration-150">
-                            Finalizar compra
-                        </a>
+                        <div class="mt-8">
+                            <a href="{{ route('checkout.show') }}" class="block w-full bg-stone-800 text-white text-center py-4 tracking-widest uppercase text-sm hover:bg-black transition-all font-bold">
+                                INICIAR COMPRA
+                            </a>
+                        </div>
 
                         <form method="POST" action="{{ route('cart.clear') }}">
                             @csrf

@@ -76,31 +76,22 @@ class CheckoutController extends Controller
         ]);
     }
 
-    public function process(Request $request)
-    {
-        $request->validate([
-            'payment_method' => 'required|in:mercadopago,transferencia',
-            'order_id' => 'required|exists:orders,id'
-        ]);
-
-        $order = Order::findOrFail($request->order_id);
-        $order->update(['payment_provider' => $request->payment_method]);
-
-        if ($request->payment_method === 'transferencia') {
-            // Redirigir a pantalla de gracias con datos de CBU
-            return redirect()->route('checkout.thanks', $order->id);
-        }
-
-        if ($request->payment_method === 'mercadopago') {
-            try {
-                $mpService = new \App\Services\MercadoPagoService();
-                $preference = $mpService->createPreference($order);
-                return redirect($preference->init_point);
-            } catch (\Exception $e) {
-                return back()->with('error', 'Ocurrió un error al conectar con Mercado Pago. Por favor, intenta usar Transferencia Bancaria.');
-            }
-        }
+public function process(Request $request) {
+    $order = Order::findOrFail($request->order_id);
+    if ($request->payment_method === 'transferencia') {
+        $order->update(['status' => 'pending', 'payment_provider' => 'transferencia']);
+        session()->forget('cart'); // O la lógica que uses para vaciar el carrito
+        return redirect()->route('checkout.thanks', $order->id);
     }
+    // Lógica de Mercado Pago con try-catch para evitar errores de token
+    try {
+        $mpService = new \App\Services\MercadoPagoService();
+        $preference = $mpService->createPreference($order);
+        return redirect($preference->init_point);
+    } catch (\Exception $e) {
+        return back()->with('error', 'Error con Mercado Pago. Por favor usa Transferencia.');
+    }
+}
 
     public function mercadoPagoReturn(Request $request): View
     {
