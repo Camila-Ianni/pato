@@ -100,5 +100,5 @@ Route::middleware('auth')->prefix('checkout')->name('checkout.')->group(function
 
 Route::middleware(['auth', 'is_admin'])->prefix('admin')->name('admin.')->group(function (): void {
     Route::resource('products', AdminProductController::class);
-    Route::resource('orders', AdminOrderController::class)->only(['index', 'show']);
+    Route::resource('orders', AdminOrderController::class)->only(['index', 'show', 'update']);
 });

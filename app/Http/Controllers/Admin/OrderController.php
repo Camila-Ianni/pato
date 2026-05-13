@@ -47,4 +47,15 @@ class OrderController extends Controller
             'order' => $order,
         ]);
     }
+
+    public function update(\Illuminate\Http\Request $request, \App\Models\Order $order)
+    {
+        $request->validate([
+            'status' => 'required|in:pending,processing,paid,shipped,completed,cancelled'
+        ]);
+
+        $order->update(['status' => $request->status]);
+
+        return back()->with('success', '¡Estado del pedido actualizado correctamente!');
+    }
 }
